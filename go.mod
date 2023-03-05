@@ -1,4 +1,4 @@
-module generatePDF
+module github.com/Caixetadev/pdf-generator
 
 go 1.20
 

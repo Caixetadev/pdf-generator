@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
-	"generatePDF/pkg/htmlParser"
-	"generatePDF/pkg/pdfGenerator"
+
 	"log"
 	"os"
+
+	"github.com/Caixetadev/pdf-generator/pkg/htmlParser"
+	"github.com/Caixetadev/pdf-generator/pkg/pdfGenerator"
 )
 
 type Data struct {
@@ -13,13 +15,13 @@ type Data struct {
 }
 
 func main() {
-	h := htmlParser.New("tmp")
+	h := htmlParser.New("pkg/templates")
 
-	wk := pdfGenerator.NewWkHTMLToPDF("tmp")
+	wk := pdfGenerator.NewWkHTMLToPDF("pkg/tmp")
 
-	dataHTML := Data{Name: "Cesar Augusto"}
+	dataHTML := Data{Name: "Rafael"}
 
-	htmlGenerated, err := h.Create("templates/example.html", dataHTML)
+	htmlGenerated, err := h.Create("pkg/templates/example.html", dataHTML)
 
 	if err != nil {
 		log.Fatal(err)
